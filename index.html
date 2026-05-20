@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$COCOA Token - The Sweetest Meme on Chain</title>
+    <style>
+        /* Cocoa Color Palette Configurations */
+        :root {
+            --dark-chocolate: #23120b;
+            --milk-chocolate: #3d2314;
+            --cocoa-beans: #5c3a21;
+            --creamy-latte: #cfb997;
+            --marshmallow: #fcf8f2;
+            --accent-gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-chocolate);
+            color: var(--marshmallow);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Deco */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(92,58,33,0.3) 0%, rgba(0,0,0,0) 70%);
+            top: -10%;
+            right: -10%;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background-color: rgba(35, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(207, 185, 151, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--creamy-latte);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav .nav-links a {
+            color: var(--marshmallow);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--creamy-latte);
+        }
+
+        .cta-btn {
+            background-color: var(--creamy-latte);
+            color: var(--dark-chocolate);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--marshmallow);
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 40px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--creamy-latte);
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #d7c9b3;
+        }
+
+        /* Contract Address Bar */
+        .ca-container {
+            background-color: var(--milk-chocolate);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--cocoa-beans);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 90%;
+            margin-bottom: 3rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .ca-container:hover {
+            background-color: var(--cocoa-beans);
+        }
+
+        .ca-text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: var(--creamy-latte);
+        }
+
+        /* Sections General */
+        section {
+            padding: 6rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--creamy-latte);
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-card {
+            background-color: var(--milk-chocolate);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(207, 185, 151, 0.1);
+        }
+
+        /* Tokenomics Grid */
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tok-card {
+            background: linear-gradient(145deg, var(--milk-chocolate), var(--dark-chocolate));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(207, 185, 151, 0.1);
+        }
+
+        .tok-card h3 {
+            color: var(--creamy-latte);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tok-card p {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #170b06;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(207, 185, 151, 0.1);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-socials a {
+            color: var(--creamy-latte);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            nav .nav-links { display: none; }
+            .ca-text { font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <a href="#" class="logo">☕ $COCOA</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#tokenomics">Tokenomics</a></li>
+            <li><a href="#howto">How to Buy</a></li>
+        </ul>
+        <a href="https://raydium.io" target="_blank" class="cta-btn">Buy Now</a>
+    </nav>
+
+    <header>
+        <h1 class="hero-title">Let It $COCOA</h1>
+        <p class="hero-subtitle">The richest, smoothest, and most delicious community-driven token built on the blockchain. Sit back, relax, and sip profits.</p>
+        
+        <div class="ca-container" onclick="copyContract()">
+            <span class="ca-text" id="contractAddress">0xCOCOA77777777777777777777777777777777cocoa</span>
+            <span style="font-size: 0.9rem; color: var(--accent-gold);">📋 <span id="copyText">COPY CA</span></span>
+        </div>
+
+        <div>
+            <a href="#about" class="cta-btn" style="background: none; border: 2px solid var(--creamy-latte); color: var(--creamy-latte); margin-right: 15px;">Learn More</a>
+            <a href="https://t.me/" target="_blank" class="cta-btn">Join Telegram</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">About $COCOA</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3 style="color: var(--creamy-latte); margin-bottom: 1rem; font-size: 1.5rem;">Why $COCOA?</h3>
+                <p>Born from a love of rich chocolate and decentralized culture, $COCOA is here to fuel the next wave of crypto enthusiasts. No complicated utilities, just pure sweet vibes and an unstoppable community.</p>
+            </div>
+            <div class="about-card" style="background-color: var(--cocoa-beans);">
+                <h3 style="color: var(--marshmallow); margin-bottom: 1rem; font-size: 1.5rem;">Our Philosophy</h3>
+                <p>Crypto moves fast, but drinking cocoa requires taking your time. We want a resilient, locked-liquidity ecosystem where holders can relax knowing their tokens are steadily brewing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics">
+        <h2 class="section-title">Tokenomics</h2>
+        <div class="tokenomics-grid">
+            <div class="tok-card">
+                <h3>Total Supply</h3>
+                <p>1,000,000,000</p>
+            </div>
+            <div class="tok-card">
+                <h3>Tax</h3>
+                <p>0% / 0%</p>
+            </div>
+            <div class="tok-card">
+                <h3>Liquidity</h3>
+                <p>Burned 🔥</p>
+            </div>
+            <div class="tok-card">
+                <h3>Mint Authority</h3>
+                <p>Revoked 🚫</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="howto">
+        <h2 class="section-title">How To Buy</h2>
+        <div class="about-grid">
+            <div>
+                <h3 style="color: var(--creamy-latte); margin-bottom: 1rem;">1. Download Phantom or Metamask</h3>
+                <p style="margin-bottom: 1.5rem;">Create a Web3 wallet secure setup on either your desktop computer or mobile device.</p>
+                
+                <h3 style="color: var(--creamy-latte); margin-bottom: 1rem;">2. Load Up Crypto</h3>
+                <p style="margin-bottom: 1.5rem;">Buy or deposit native tokens (like SOL or ETH) directly into your newly created wallet address.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--creamy-latte); margin-bottom: 1rem;">3. Connect to a DEX</h3>
+                <p style="margin-bottom: 1.5rem;">Head over to Raydium, Jupiter, or Uniswap, tap 'Connect Wallet' and link your setup.</p>
+                
+                <h3 style="color: var(--creamy-latte); margin-bottom: 1rem;">4. Swap for $COCOA</h3>
+                <p style="margin-bottom: 1.5rem;">Paste our official Contract Address into the selection bar and complete your swap transaction!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://x.com" target="_blank">X (Twitter)</a>
+            <a href="https://t.me" target="_blank">Telegram</a>
+            <a href="https://dexscreener.com" target="_blank">DexScreener</a>
+        </div>
+        <p style="font-size: 0.9rem; color: #7a543b;">&copy; 2026 $COCOA Token. Built for entertainment purposes only.</p>
+    </footer>
+
+    <script>
+        // Copy Contract functionality
+        function copyContract() {
+            const caText = document.getElementById('contractAddress').innerText;
+            navigator.clipboard.writeText(caText).then(() => {
+                const copyTextEl = document.getElementById('copyText');
+                copyTextEl.innerText = "COPIED!";
+                setTimeout(() => {
+                    copyTextEl.innerText = "COPY CA";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
